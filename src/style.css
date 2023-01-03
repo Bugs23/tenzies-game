@@ -6,6 +6,7 @@ body {
     margin: 0;
     background-color: #0B2434;
     padding: 20px;
+    font-family: 'Karla', sans-serif;
 }
 
 main {
@@ -18,6 +19,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 
