@@ -57,6 +57,7 @@ DICE
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    place-self: center;
 }
 
 .die-num {
@@ -65,14 +66,13 @@ DICE
 
 .roll-dice {
     height: 50px;
-    width: 100px;
+    width: 150px;
     border: none;
     border-radius: 6px;
     background-color: #5035FF;
     color: white;
     font-size: 1.2rem;
     font-family: 'Karla', sans-serif;
-    margin: 0 auto;
     cursor: pointer;
 }
 
