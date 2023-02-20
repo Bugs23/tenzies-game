@@ -10,13 +10,15 @@ export default function App() {
 
 	const [tenzies, setTenzies] = React.useState(false)
 
-	// helper functiom fpr generating a new die that returns an object with all the dice properties
+	const [windowWidth, setWindowWidth] = React.useState(window.innerWidth)
+
+	// helper functiom for generating a new die that returns an object with all the dice properties
 	function generateNewDie() {
 		return {
-	        		value: Math.ceil(Math.random() * 6), 
-	        		isHeld: false,
-	        		id: nanoid()
-        		}	
+	    	value: Math.ceil(Math.random() * 6), 
+	        isHeld: false,
+	        id: nanoid()
+        }	
 	}
 
 	React.useEffect(() => {
@@ -33,6 +35,13 @@ export default function App() {
 		}
 
 	}, [dice])
+
+	// Window width for confetti
+    React.useEffect(() => {
+        window.addEventListener("resize", function() {
+            setWindowWidth(window.innerWidth)
+        })
+    }, [])
 
     function allNewDice() {
         // create a new dice array to hold the numbers
@@ -77,7 +86,7 @@ export default function App() {
 
 	return (
 		<main>
-			{tenzies && <Confetti />}
+			{tenzies && <Confetti width={windowWidth} />}
 			<h1 className="title">Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
 			<div className="dice-container">
