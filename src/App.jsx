@@ -48,11 +48,19 @@ export default function App() {
     }
 
     function rollDice() {
-    	setDice((oldDice) => {
-    		return oldDice.map((die) => {
-    			return die.isHeld ? die : generateNewDie()
-    		})
-    	})
+    	// Only roll the dice if they don't have tenzies
+    	if (!tenzies) {
+	    	setDice((oldDice) => {
+	    		return oldDice.map((die) => {
+	    			return die.isHeld ? die : generateNewDie()
+	    		})
+	    	})
+	    // If they've won the game set tenzies to false
+	    // Generate all new dice
+    	} else {
+    		setTenzies(false)
+    		setDice(allNewDice())
+    	}
     }
 
     function holdDice(id) {
